@@ -20,4 +20,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\src\Vinties.Domain\Vinties.Domain.csproj" />
+    <ProjectReference Include="..\src\Vinties.Services\Vinties.Services.csproj" />
+  </ItemGroup>
+
 </Project>

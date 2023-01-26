@@ -1,0 +1,6 @@
+S MR 2 
+M MR 3
+L MR 4
+S LP 1.5
+M LP 4.9
+L LP 6.9 

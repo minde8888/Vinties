@@ -1,11 +1,10 @@
 ﻿
-
 namespace Vinties.Domain.Models
 {
-    public class BaseDiscount
+    public class GoodsDelivery 
     {
         public DateTime Date { get; set; }
-        public int Index { get; set; }
         public string Company { get; set; }
+        public string Size { get; set; }
     }
 }

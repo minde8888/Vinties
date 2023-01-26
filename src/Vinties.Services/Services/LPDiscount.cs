@@ -4,7 +4,7 @@ namespace Vinties.Services.Services
 {
     public class LPDiscount : BaseDiscountCounter
     {
-        public LPDiscount(BaseDiscount price) : base(price)
+        public LPDiscount(BaseSizes price) : base(price)
         {
         }
         public override string[] GetDiscount(string[] text)

@@ -53,8 +53,7 @@ namespace Vinties.Services.Services
                 if (company == "LP" &&
                     size == "L" &&
                    discount >= discountLP &&
-                   monthLP
-                   )
+                   monthLP)
                 {
                     counterDiscount += discountLP;
                     var line = item.Substring(0, item.LastIndexOf(' ')).TrimEnd();

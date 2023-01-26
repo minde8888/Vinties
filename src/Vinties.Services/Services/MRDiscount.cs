@@ -1,11 +1,12 @@
-﻿using Vinties.Domain.Helpers;
+﻿
+
 using Vinties.Domain.Models;
 
 namespace Vinties.Services.Services
 {
     public class MRDiscount : BaseDiscountCounter
     {
-        public MRDiscount(BaseDiscount price) : base(price)
+        public MRDiscount(BaseSizes price) : base(price)
         {
         }
         public override string[] GetDiscount(string[] text)

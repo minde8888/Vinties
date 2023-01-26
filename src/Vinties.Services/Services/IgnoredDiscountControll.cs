@@ -5,7 +5,7 @@ namespace Vinties.Services.Services
 {
     public class IgnoredDiscountControll : BaseDiscountCounter
     {
-        public IgnoredDiscountControll(BaseDiscount price) : base(price)
+        public IgnoredDiscountControll(BaseSizes price) : base(price)
         {
         }
         public override string[] GetDiscount(string[] text)
