@@ -1,28 +1,26 @@
-﻿
-
-using Vinties.Domain.Helpers;
-using Vinties.Domain.Models;
+﻿using Vinties.Domain.Models;
 
 namespace Vinties.Services.Services
 {
-    public class ReadTextFileService
+    public class ReadWriteTextFile
     {
         private readonly string input = @"D:\#C\Vinties\input.txt";
         private readonly string prices = @"D:\#C\Vinties\prices.txt";
 
-        public async Task<List<GoodsDelivery>> GetInput()
+        public async Task<List<GoodsDelivery>> ReadFileInput()
         {
             if (File.Exists(input))
             {
                 string text = await File.ReadAllTextAsync(input);
                 string[] lines = text.Split("\r\n");
+                var prices = await ReadFilePices();
 
-                return new GoodsDeleveryList().DeliveryList(lines);
+                return new ArrayToGoodsDelivery().DeliveryList(lines, prices);
             }
             throw new ArgumentNullException("text file not found");
         }
 
-        public async Task<string[]> GetPices()
+        private async Task<string[]> ReadFilePices()
         {
             if (File.Exists(prices))
             {
@@ -32,6 +30,17 @@ namespace Vinties.Services.Services
                 return lines;
             }
             throw new ArgumentNullException("text file not found");
+        }
+
+        public void WriteFile(string[] lines)
+        {
+            using (StreamWriter file = new StreamWriter(@"D:\#C\Vinties\Vinties.txt"))
+            {
+                foreach (string line in lines)
+                {
+                    file.WriteLineAsync(line);
+                }
+            }
         }
 
     }
