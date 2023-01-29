@@ -31,7 +31,6 @@ namespace Vinties.Services.Discount
                     month = currentMonth;
                 }
 
-
                 if (Math.Round((double)(priceDiscount - counterDiscount), 2) < item.Discount &&
                     item.Discount != null)
                 {
@@ -50,8 +49,8 @@ namespace Vinties.Services.Discount
                     item.Price = item.Discount != null ? item.Price + item.Discount : item.Price;
                     item.Discount = null;
                 }
-
             }
+
             return list;
         }
     }

@@ -13,10 +13,10 @@ class Program
             .AddSingleton<DiscountCounter>()
             .AddSingleton<LPDiscountCounter>()
             .AddSingleton<MRDiscountCounter>()
-            .AddSingleton<Discount>()
+            .AddSingleton<ExecuteDiscount>()
             .BuildServiceProvider();
 
-        var discount = serviceProvider.GetService<Discount>();
+        var discount = serviceProvider.GetService<ExecuteDiscount>();
         await discount.GetDiscountPrices();
     }
 }
