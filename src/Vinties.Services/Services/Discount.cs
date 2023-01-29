@@ -1,11 +1,14 @@
 ﻿
 
+using Vinties.Services.Discount;
+
 namespace Vinties.Services.Services
 {
     public class Discount
     {
         private readonly ReadWriteTextFile _readTextFile;
         private readonly DiscountCounter _discountCounter;
+        private int priceDiscount = 10;
 
         public Discount(ReadWriteTextFile readTextFile, DiscountCounter discountCounter)
         {
@@ -16,9 +19,8 @@ namespace Vinties.Services.Services
         public async Task GetDiscountPrices()
         {
             var deliveryList = await _readTextFile.ReadFileInput();
-            var value = _discountCounter.DiscountRange(deliveryList);
-
-            // deliveryList.Delivery.Where(x => x.Contains("MR") && x.Contains(" S ")).Select(w => { w = "222"; return w; });
+            var discount = _discountCounter.DiscountRange(deliveryList, priceDiscount);
+            _readTextFile.WriteFile(discount);
         }
     }
 }

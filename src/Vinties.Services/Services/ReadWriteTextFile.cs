@@ -32,17 +32,13 @@ namespace Vinties.Services.Services
             throw new ArgumentNullException("text file not found");
         }
 
-        public void WriteFile(string[] lines)
+        public void WriteFile(List<GoodsDelivery> list)
         {
-            using (StreamWriter file = new StreamWriter(@"D:\#C\Vinties\Vinties.txt"))
+            using (StreamWriter file = new StreamWriter(@"D:\#C\Vinties\Vinties1.txt"))
             {
-                foreach (string line in lines)
-                {
-                    file.WriteLineAsync(line);
-                }
+                list.ForEach(x => file.WriteLine( $"{ x.Date.ToString("yyyy-MM-dd")} {x.Size} {x.Company} {x.Price} {x?.Discount}" ));
             }
         }
 
     }
 }
-  
