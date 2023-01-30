@@ -1,9 +1,10 @@
 ﻿
+using Vinties.Domain.Interfaces;
 using Vinties.Domain.Models;
 
 namespace Vinties.Services.Discount
 {
-    public class MRDiscountCounter
+    public class MRDiscountCounter : IMRDiscountCounter
     {
         public List<GoodsDelivery> MRDiscount(List<GoodsDelivery> list)
         {

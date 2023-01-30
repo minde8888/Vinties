@@ -1,15 +1,16 @@
-﻿using Vinties.Domain.Models;
+﻿using Vinties.Domain.Interfaces;
+using Vinties.Domain.Models;
 
 namespace Vinties.Services.Discount
 {
     public class DiscountCounter
     {
-        private readonly LPDiscountCounter _lPDiscountCounter;
-        private readonly MRDiscountCounter _mRDiscountCounter;
+        private readonly ILPDiscountCounter _lPDiscountCounter;
+        private readonly IMRDiscountCounter _mRDiscountCounter;
 
         public DiscountCounter(
-            LPDiscountCounter lPDiscountCounter,
-            MRDiscountCounter mRDiscountCounter)
+            ILPDiscountCounter lPDiscountCounter,
+            IMRDiscountCounter mRDiscountCounter)
         {
             _lPDiscountCounter = lPDiscountCounter;
             _mRDiscountCounter = mRDiscountCounter;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Vinties.Domain.Interfaces;
 using Vinties.Services.Discount;
 using Vinties.Services.Services;
 
@@ -11,8 +12,8 @@ class Program
             .AddSingleton<ReadWriteTextFile>()
             .AddSingleton<ArrayToGoodsDelivery>()
             .AddSingleton<DiscountCounter>()
-            .AddSingleton<LPDiscountCounter>()
-            .AddSingleton<MRDiscountCounter>()
+            .AddSingleton<ILPDiscountCounter, LPDiscountCounter>()
+            .AddSingleton<IMRDiscountCounter, MRDiscountCounter>()
             .AddSingleton<ExecuteDiscount>()
             .BuildServiceProvider();
 

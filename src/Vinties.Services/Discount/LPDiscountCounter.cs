@@ -1,8 +1,9 @@
-﻿using Vinties.Domain.Models;
+﻿using Vinties.Domain.Interfaces;
+using Vinties.Domain.Models;
 
 namespace Vinties.Services.Discount
 {
-    public class LPDiscountCounter
+    public class LPDiscountCounter: ILPDiscountCounter
     {
         public List<GoodsDelivery> LPDiscount(List<GoodsDelivery> list)
         {
