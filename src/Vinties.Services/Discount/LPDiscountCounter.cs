@@ -5,7 +5,7 @@ namespace Vinties.Services.Discount
 {
     public class LPDiscountCounter: ILPDiscountCounter
     {
-        public List<GoodsDelivery> LPDiscount(List<GoodsDelivery> list)
+        public void Apply(List<GoodsDelivery> list)
         {
             var couner = 0;
             int? month = null;
@@ -32,8 +32,6 @@ namespace Vinties.Services.Discount
                     item.Discount = null;
                 }
             }
-
-            return list;
         }
     }
 }

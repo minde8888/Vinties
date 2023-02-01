@@ -1,29 +1,29 @@
 ﻿using Vinties.Domain.Interfaces;
 using Vinties.Domain.Models;
 
-namespace Vinties.Services.Discount
+namespace Vinties.Services.Services
 {
-    public class DiscountCounter
+    public class DiscountService
     {
         private readonly ILPDiscountCounter _lPDiscountCounter;
-        private readonly IMRDiscountCounter _mRDiscountCounter;
+        private readonly IMRDiscount _mRDiscountCounter;
 
-        public DiscountCounter(
+        public DiscountService(
             ILPDiscountCounter lPDiscountCounter,
-            IMRDiscountCounter mRDiscountCounter)
+            IMRDiscount mRDiscountCounter)
         {
             _lPDiscountCounter = lPDiscountCounter;
             _mRDiscountCounter = mRDiscountCounter;
         }
-        public List<GoodsDelivery> DiscountRange(List<GoodsDelivery> list, int priceDiscount)
+        public List<GoodsDelivery> ApplyDiscounts(List<GoodsDelivery> deliveries, int priceDiscount)
         {
-            _ = _lPDiscountCounter.LPDiscount(list);
-            _ = _mRDiscountCounter.MRDiscount(list);
+            _lPDiscountCounter.Apply(deliveries);
+            _mRDiscountCounter.Apply(deliveries);
 
             int? month = null;
             double? counterDiscount = 0;
 
-            foreach (var item in list)
+            foreach (var item in deliveries)
             {
                 var currentMonth = item.Date.Month;
                 if (month != currentMonth)
@@ -52,7 +52,7 @@ namespace Vinties.Services.Discount
                 }
             }
 
-            return list;
+            return deliveries;
         }
     }
 }

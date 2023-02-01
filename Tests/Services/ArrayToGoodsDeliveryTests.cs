@@ -4,10 +4,10 @@ namespace Tests.Services
 {
     public class ArrayToGoodsDeliveryTests
     {
-        private readonly ArrayToGoodsDelivery _arrayToGoodsDelivery;
+        private readonly DateConvertServices _arrayToGoodsDelivery;
         public ArrayToGoodsDeliveryTests()
         {
-            _arrayToGoodsDelivery = new ArrayToGoodsDelivery();
+            _arrayToGoodsDelivery = new DateConvertServices();
         }
 
         [Fact]
@@ -17,7 +17,7 @@ namespace Tests.Services
             string[] prices = new string[] { "S MR 2 0,5" };
 
             //act 
-            var result = _arrayToGoodsDelivery.DeliveryList(delivery, prices);
+            var result = _arrayToGoodsDelivery.ConvertToDeliverys(delivery, prices);
             //result
             Assert.NotNull(result);
         }

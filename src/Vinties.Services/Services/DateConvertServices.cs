@@ -5,7 +5,7 @@ using Vinties.Services.Validators;
 
 namespace Vinties.Services.Services
 {
-    public class ArrayToGoodsDelivery
+    public class DateConvertServices
     {
         private enum Size
         {
@@ -17,11 +17,9 @@ namespace Vinties.Services.Services
             L
         }
 
-        public List<GoodsDelivery> DeliveryList(string[] delivery, string[] prices)
+        public List<GoodsDelivery> ConvertToDeliverys(string[] delivery, string[] prices)
         {
-            var prisesDiscounts = PricesList(prices);
-            if (prisesDiscounts == null)
-                throw new ArgumentException("Prise/discount file is not supported format or empty ");
+            var prisesDiscounts = ConvertPricesList(prices);
 
             var list = new List<GoodsDelivery>();
 
@@ -46,7 +44,7 @@ namespace Vinties.Services.Services
             return list;
         }
 
-        private List<PricesDiscounts> PricesList(string[] prices)
+        private List<PricesDiscounts> ConvertPricesList(string[] prices)
         {
             var list = new List<PricesDiscounts>();
             

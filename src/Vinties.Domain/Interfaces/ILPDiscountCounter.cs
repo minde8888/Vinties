@@ -6,6 +6,6 @@ namespace Vinties.Domain.Interfaces
 {
     public interface ILPDiscountCounter
     {
-        public List<GoodsDelivery> LPDiscount(List<GoodsDelivery> list);
+        public void Apply(List<GoodsDelivery> list);
     }
 }

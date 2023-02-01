@@ -9,15 +9,15 @@ class Program
     {
         var serviceProvider = new ServiceCollection()
             .AddLogging()
-            .AddSingleton<ReadWriteTextFile>()
-            .AddSingleton<ArrayToGoodsDelivery>()
-            .AddSingleton<DiscountCounter>()
             .AddSingleton<ILPDiscountCounter, LPDiscountCounter>()
-            .AddSingleton<IMRDiscountCounter, MRDiscountCounter>()
-            .AddSingleton<ExecuteDiscount>()
+            .AddSingleton<IMRDiscount, MRDiscount>()
+            .AddSingleton<FileService>()
+            .AddSingleton<DiscountService>()
+            .AddSingleton<DateConvertServices>()
+            .AddSingleton<Runner>()
             .BuildServiceProvider();
 
-        var discount = serviceProvider.GetService<ExecuteDiscount>();
+        var discount = serviceProvider.GetService<Runner>();
         await discount.GetDiscountPrices();
     }
 }
